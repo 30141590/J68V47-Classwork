@@ -16,6 +16,7 @@ public class L2E3 {
 
         System.out.print("Enter the Name of item 3: ");
         String NameThree = input.nextLine();
+        NameThree = input.nextLine();
         System.out.print("Enter the price of the " + NameThree + ": ");
         float ThirdNum = input.nextFloat();
 

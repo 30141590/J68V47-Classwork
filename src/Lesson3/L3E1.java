@@ -11,7 +11,7 @@ public class L3E1 {
         System.out.print("Surname: ");
         String Sname = input.nextLine();
         System.out.print("Birth Year: ");
-        Integer Byear = input.nextInt();
+        int Byear = input.nextInt();
 
         String Fletter = Fname.substring(0,1);
         Fletter = Fletter.toUpperCase();

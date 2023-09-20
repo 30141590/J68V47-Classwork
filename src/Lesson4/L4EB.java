@@ -7,8 +7,7 @@ public class L4EB {
         float Marks = input.nextFloat();
         System.out.print("What is the total marks available: ");
         float Total = input.nextFloat();
-        float Percentage = (Marks/Total*100);
-        System.out.println(Percentage);
+        double Percentage = (Marks/Total*100);
         if (Percentage >= 70){
             System.out.print("Result: A");
         }

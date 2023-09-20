@@ -1,6 +1,6 @@
 package Lesson4;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class L4E1 {
     public static void main(String[] args) {
@@ -14,15 +14,15 @@ public class L4E1 {
             double Value = input.nextDouble();
             System.out.print("Deposit: £");
             double Deposit = input.nextDouble();
-                String Username = (Fname.substring(0,1) + " " + Sname);
-                double Remainder = (Value-Deposit);
-                System.out.println("Customer 1: " + Username);
-                System.out.printf("Order Total: £%.2f%n", Value);
-                System.out.printf("Deposit Paid: £%.2f%n", Deposit);
-                System.out.printf("Remainder: £%.2f%n", Remainder);
-                if (Deposit > 100) {
-                    System.out.println("You get a free toaster!");
-                }
-                System.out.println("Have a nice day!");
+            String Username = (Fname.substring(0,1) + " " + Sname);
+            double Remainder = (Value-Deposit);
+            System.out.println("Customer 1: " + Username);
+            System.out.printf("Order Total: £%.2f%n", Value);
+            System.out.printf("Deposit Paid: £%.2f%n", Deposit);
+            System.out.printf("Remainder: £%.2f%n", Remainder);
+            if (Deposit > 100) {
+                System.out.println("You get a free toaster!");
+            }
+            System.out.println("Have a nice day!");
     }
 }

@@ -7,7 +7,7 @@ public class L5E1 {
         System.out.print("What numbers times table would you like to see: ");
         int Number = input.nextInt();
         for( int count=0; count<=12; count++ ){
-            System.out.print(Number*count + ", ");
+            System.out.println(Number+" x "+count+" = "+Number*count);
 
         }
     }

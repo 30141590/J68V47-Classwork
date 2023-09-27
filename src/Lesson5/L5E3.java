@@ -20,7 +20,6 @@ public class L5E3 {
                 System.out.println("Incorrect");
             }
 
-
         }
         System.out.println("Your final score was: "+Score+"/10");
     }

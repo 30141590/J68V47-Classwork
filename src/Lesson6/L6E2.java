@@ -1,8 +1,12 @@
 package Lesson6;
 import java.util.*;
+import java.time.*;
+import java.time.format.*;
 public class L6E2 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
+        LocalDateTime Time = LocalDateTime.now();
+        DateTimeFormatter Format = DateTimeFormatter.ofPattern("HH:mm");
         int quit = 0;
         while (quit == 0){
             System.out.println("Please choose an option by entering the corresponding number e.g. 1");
@@ -13,25 +17,17 @@ public class L6E2 {
             System.out.print("Select An Option: ");
             int Selection = input.nextInt();
             if (Selection == 1){
-                System.out.println(" ");
-                System.out.println("Hello");
-                System.out.println(" ");
+                System.out.println("\nHello\n");
             }
             if (Selection == 2){
-                System.out.println(" ");
-                System.out.println("== ERROR ==");
-                System.out.println("Date and Time functionalities are currently unavailable.");
-                System.out.println(" ");
+                String formattedDate = Time.format(Format);
+                System.out.println("\n" + formattedDate + "\n");
             }
             if (Selection == 3){
-                System.out.println(" ");
-                System.out.println("Why don't scientists trust atoms?\n" + "\n" + "Because they make up everything!");
-                System.out.println(" ");
+                System.out.println("\nWhy don't scientists trust atoms?\nBecause they make up everything!\n");
             }
             if (Selection == 4){
-                System.out.println(" ");
-                System.out.println("Exiting Program");
-                System.out.println(" ");
+                System.out.println("\nExiting Program\n");
                 quit = 1;
             }
 

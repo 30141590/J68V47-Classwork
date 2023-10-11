@@ -7,25 +7,21 @@ public class L7E3 {
         int Num = (int) (Math.random() * (10 - 2 + 1) + 2);
         return Num;
     }
-
     public static int hardRand() {
         int Num = (int) (Math.random() * (100 - 2 + 1) + 2);
         return Num;
     }
-
     public static int askQuestion(int None, int Ntwo, int answer) {
         Scanner input = new Scanner(System.in);
         System.out.println("What is " + None + "x" + Ntwo + "?");
         int Response = input.nextInt();
         return Response;
     }
-
     public static int RightAnswer(int Score) {
         Score++;
         System.out.println("\nCorrect!\n");
         return Score;
     }
-
     public static int WrongAnswer(int answer, int Lives) {
         Lives--;
         System.out.println("\nIncorrect");
@@ -41,7 +37,6 @@ public class L7E3 {
             System.out.println("Well Done!");
         }
     }
-
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int Score = 0;
@@ -62,7 +57,6 @@ public class L7E3 {
                     Lives = WrongAnswer(Answer, Lives);
                 }
                 count--;
-
 
             } else if (Difficulty == 2) {
                     int None = hardRand();

@@ -32,6 +32,15 @@ public class L7E3 {
         System.out.println("You have " + Lives + "/3 lives remaining\n");
         return Lives;
     }
+    public static void GameOver(int Score, int Lives){
+        if (Lives == 0) {
+            System.out.println("You ran out of lives.");
+        }
+        System.out.println("Your final score was: " + Score + "/10");
+        if (Lives == 3) {
+            System.out.println("Well Done!");
+        }
+    }
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
@@ -72,13 +81,7 @@ public class L7E3 {
                 Difficulty = input.nextInt();
             }
         }
-        if (Lives == 0) {
-            System.out.println("You ran out of lives.");
-        }
-        System.out.println("Your final score was: " + Score + "/10");
-        if (Lives == 3) {
-            System.out.println("Well Done!");
-            }
+        GameOver(Score, Lives);
         }
     }
 

@@ -3,9 +3,7 @@ package Lesson7;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
-
 public class L7E1 {
-
     public static void showMenu(){
         System.out.println("Please choose an option by entering the corresponding number e.g. 1");
         System.out.println("1. Say \"Hello\"");
@@ -36,7 +34,6 @@ public class L7E1 {
         while (quit == 0){
             showMenu();
             int Selection = getOption();
-
             if (Selection == 1){
                 option1();
             } else if (Selection == 2){
@@ -49,8 +46,6 @@ public class L7E1 {
             } else {
                 System.out.println("\nThis is not a valid option. Try a number between 1-4.\n");
             }
-
         }
-
     }
 }

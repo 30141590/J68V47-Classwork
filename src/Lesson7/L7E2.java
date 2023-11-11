@@ -11,7 +11,6 @@ public class L7E2 {
         int Sum = x+y;
         return Sum;
     }
-
     public static void main(String[] args) {
         int x = numGet();
         int y = numGet();

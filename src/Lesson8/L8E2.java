@@ -1,4 +1,5 @@
 package Lesson8;
+import java.util.*;
 
 public class L8E2 {
     public static int[] scores() {
@@ -21,6 +22,9 @@ public class L8E2 {
         for (int count = 0; count < results.length; count++){
             System.out.println(results[count]);
         }
+        Arrays.sort(results);
+        System.out.format("The lowest score is: %d %n", results[0]);
+        System.out.format("The highest score is: %d %n", results[results.length - 1]);
         System.out.format("The average score is: %.0f", avg);
     }
     public static void main(String[] args) {

@@ -1,7 +1,6 @@
 package Lesson7;
 
 import java.util.*;
-
 public class L7E3 {
     public static int easyRand() {
         int Num = (int) (Math.random() * (10 - 2 + 1) + 2);
@@ -57,7 +56,6 @@ public class L7E3 {
                     Lives = WrongAnswer(Answer, Lives);
                 }
                 count--;
-
             } else if (Difficulty == 2) {
                     int None = hardRand();
                     int Ntwo = hardRand();
@@ -69,7 +67,6 @@ public class L7E3 {
                         Lives = WrongAnswer(Answer, Lives);
                     }
                     count--;
-
             } else {
                 System.out.print("Please select 1 or 2: ");
                 Difficulty = input.nextInt();

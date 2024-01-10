@@ -56,15 +56,12 @@ public class L12E4 {
         System.out.println("------------------------------------------------");
     }
     public static void main(String[] args) {
-        // load file contents into an array of student objects
         ArrayList<car> thisClass = loadFile("src/Lesson12/carSales.txt");
-        // loop for all objects and show details
         int maxPrice = getPrice();
         int maxMileage = getMileage();
         String condition = getCondition();
         for(int i=0;i<thisClass.size();i++){
             car thisCar = thisClass.get(i);
-            // show details for this student
             if (thisCar.price < maxPrice && thisCar.mileage < maxMileage && thisCar.condition.equalsIgnoreCase(condition)){
                 displayCar(thisCar);
             }

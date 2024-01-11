@@ -38,7 +38,7 @@ public class Hangman {
             }
             System.out.print("\nEnter Your guess: ");
             String guess = input.nextLine();
-            if (List.contains)
+
 
         }
 

@@ -33,6 +33,7 @@ public class test {
                 System.out.print("-");
             }
         }
+
         System.out.println("");
         return (Word.length() == count);
     }
@@ -47,17 +48,28 @@ public class test {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         String EasyWord = GetEasyWord();
+        int Lives = 5;
+        int Score = 0;
 
         List<Character> Guesses = new ArrayList<>();
 
-        while(true) {
+        while(Lives != 0) {
+            WordPrint(EasyWord, Guesses);
             takeInput(EasyWord, Guesses);
 
             if (WordPrint(EasyWord, Guesses)){
+                System.out.println("you win");
                 break;
             }
+            System.out.print("Guess the word: ");
+            if (input.nextLine().equalsIgnoreCase(EasyWord)){
+                System.out.println("you win!");
+                break;
+            } else {
+                Lives--;
+                System.out.println("Wrong! You have " + Lives + " Lives remaining");
+            }
         }
-        System.out.print("you win");
-
+        System.out.println("you have lost, better luck next time");
     }
 }

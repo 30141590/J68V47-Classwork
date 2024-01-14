@@ -1,14 +1,37 @@
 package IP3;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 public class test2 {
+    public static void HSCheck(int Score, File in) {
+        int HS = 0;
+        String HSstring = "";
+        try {
+            Scanner input = new Scanner((in));
+            HSstring = input.nextLine();
+            HS = Integer.parseInt(HSstring);
+            FileWriter writer = new FileWriter(in);
 
-    public static String GetEasyWord() {
+            if (Score > HS){
+                HS = Score;
+                System.out.println("Congrats you set a new high score!");
+                writer.write(Integer.toString(HS));
+                writer.close();
+            } else{
+                System.out.println("Better luck next time.");
+                writer.write(Integer.toString(HS));
+                writer.close();
+            }
+
+        } catch (IOException e) {
+            System.out.println("An error has occurred: " + e.toString());
+        }
+    }
+
+    public static String GetWord(File in) {
         String Word = "";
         try {
             Random Randomizer = new Random();
-            Scanner input = new Scanner(new File("C:\\Users\\notsl\\IdeaProjects\\J68V47-Classwork\\src\\IP3\\easyWords.txt"));
+            Scanner input = new Scanner(in);
 
             List<String> EasyWords = new ArrayList<>();
             while (input.hasNext()) {
@@ -51,6 +74,8 @@ public class test2 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int option = 0;
+        int Lives = 7;
+        int Score = 0;
         do {
             System.out.println("Please Select a difficulty: ");
             System.out.println("1. Easy");
@@ -59,9 +84,8 @@ public class test2 {
             System.out.println("4. Help");
             System.out.println("5. Quit");
 
-            boolean flag;
+            boolean flag = false;
             do {
-                flag = false;
                 System.out.print("Input an option (1-4): ");
                 String selection = input.nextLine();
                 for (int i = 0; i < selection.length(); i++) {
@@ -69,19 +93,18 @@ public class test2 {
                         flag = true;
                 }
                 if (flag) {
-                    System.out.println("This is not a valid input\n");
+                    System.out.println("\nThis is not a valid option. Try a number between 1 and 4\n");
                 } else {
                     option = Integer.parseInt(selection);
                 }
             } while (flag);
             if (option == 1){
-                int Lives = 5;
-                int Score = 0;
 
+                File EasyWords = new File("C:\\Users\\notsl\\IdeaProjects\\J68V47-Classwork\\src\\IP3\\easyWords.txt");
                 while (Lives != 0) {
-                    String EasyWord = GetEasyWord();
+                    String EasyWord = GetWord(EasyWords);
                     List<Character> Guesses = new ArrayList<>();
-                    Lives = 5;
+                    Lives = 7;
                     while (true) {
                         WordPrint(EasyWord, Guesses);
                         takeInput(Guesses);
@@ -103,13 +126,48 @@ public class test2 {
                             System.out.println("\nWrong! You have " + Lives + " Lives remaining\n");
                         }
                         if (Lives == 0){
+                            File EasyHS = new File("C:\\Users\\notsl\\IdeaProjects\\J68V47-Classwork\\src\\IP3\\easyHighScore.txt");
+                            HSCheck(Score, EasyHS);
                             System.out.println("GAME OVER!\n \nThe correct word was: " + EasyWord + "\n \nYou scored " + Score + " Points");
                             break;
                         }
                     }
                 }
             } else if (option == 2){
-                System.out.println("The time is now.");
+
+                File EasyWords = new File("C:\\Users\\notsl\\IdeaProjects\\J68V47-Classwork\\src\\IP3\\medWords.txt");
+                while (Lives != 0) {
+                    String EasyWord = GetWord(EasyWords);
+                    List<Character> Guesses = new ArrayList<>();
+                    Lives = 7;
+                    while (true) {
+                        WordPrint(EasyWord, Guesses);
+                        takeInput(Guesses);
+
+                        if (WordPrint(EasyWord, Guesses)) {
+                            System.out.println("You found all the right letters!");
+                            Score++;
+                            System.out.println("Your score is: " + Score);
+                            break;
+                        }
+                        System.out.print("Guess the word: ");
+                        if (input.nextLine().equalsIgnoreCase(EasyWord)) {
+                            System.out.println("You guessed the word correctly!");
+                            Score++;
+                            System.out.println("Your score is: " + Score);
+                            break;
+                        } else {
+                            Lives--;
+                            System.out.println("\nWrong! You have " + Lives + " Lives remaining\n");
+                        }
+                        if (Lives == 0){
+                            File EasyHS = new File("C:\\Users\\notsl\\IdeaProjects\\J68V47-Classwork\\src\\IP3\\easyHighScore.txt");
+                            HSCheck(Score, EasyHS);
+                            System.out.println("GAME OVER!\n \nThe correct word was: " + EasyWord + "\n \nYou scored " + Score + " Points");
+                            break;
+                        }
+                    }
+                }
             } else if (option == 3){
                 System.out.println("Knock knock. Who's there? ....... long pause ........ Java");
             } else if (option == 4){
@@ -119,7 +177,7 @@ public class test2 {
             } else if (option == 5){
                 System.out.println("Goodbye!");
             } else {
-                System.out.println("This isn't a valid option. Try a number between 1 and 4.");
+                System.out.println("\nThis isn't a valid option. Try a number between 1 and 4.\n");
             }
         } while (option != 5);
 

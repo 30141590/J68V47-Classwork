@@ -65,3 +65,11 @@ eat
 give
 look
 open
+low
+may
+more
+high
+jump
+live
+down
+walk
